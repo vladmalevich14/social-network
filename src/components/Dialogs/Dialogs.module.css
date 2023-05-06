@@ -1,0 +1,95 @@
+.content {
+    grid-area: c;
+    background-color: blue;
+}
+
+.avatarka {
+    width: 100px;
+}
+
+.dialogs {
+    color: white;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItems .dialog {
+    display: flex;
+    align-items: center;
+}
+
+.dialogsItems {
+    padding: 10px;
+    border-right: 1px solid white;
+    height: 500px;
+}
+
+.dialogsItems .active {
+    color: gold;
+}
+
+.dialogWrap {
+    text-align: center;
+}
+
+.messages {
+    padding: 10px;
+}
+
+.messages .message {
+    color: white;
+}
+
+.dialog img, .ava {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px 0 5px 0;
+}
+
+.navName {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+}
+
+
+/*Message*/
+.message {
+    display: flex;
+    align-items: flex-end;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: dodgerblue;
+}
+
+.text {
+    min-width: 150px;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.textWrap {
+    margin: 10px 0 10px 15px;
+    padding: 0 0 5px 10px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 10px 10px 10px 0;;
+    background-color: rgb(47, 79, 79);
+    color: white;
+    position: relative;
+}
+
+.textWrap::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    display: block;
+    width: 25px;
+    height: 30px;
+    background: radial-gradient(65px at top left, transparent 49%, darkslategray 51%) no-repeat right bottom;
+}

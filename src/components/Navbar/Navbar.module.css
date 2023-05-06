@@ -1,0 +1,42 @@
+.nav {
+    grid-area: n;
+    background-color: burlywood;
+    padding: 20px;
+    color: white;
+    font-size: 23px;
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+}
+
+a.active {
+    color: gold;
+    text-decoration: none;
+}
+
+
+.friends {
+    margin-top: 100px;
+}
+
+.friends img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.nameSection {
+    margin-bottom: 10px;
+}
+
+.nameFriend {
+    font-size: 14px;
+    text-align: center;
+}
+
+.infoFriends {
+    display: flex;
+}
