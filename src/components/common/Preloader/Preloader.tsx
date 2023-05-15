@@ -4,8 +4,8 @@ import styles from "../../Users/Users.module.css";
 
 const Preloader = () => {
     return (
-        <div>
-            <img src={preloader} className={styles.preloader}/>
+        <div role={'main'} >
+            <img src={preloader} className={styles.preloader} alt={'preloader'}/>
         </div>
     );
 };

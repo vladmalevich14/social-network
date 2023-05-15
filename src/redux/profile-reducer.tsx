@@ -3,10 +3,10 @@ import {ProfileType} from "../components/Profile/ProfileContainer";
 import {profileAPI, usersAPI} from "../components/api/api";
 import {Dispatch} from "redux";
 
-const ADD_POST = 'ADD-POST';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
-const SET_STATUS = 'SET_STATUS';
-const DELETE_POST = 'DELETE_POST';
+const ADD_POST = 'profile/ADD-POST';
+const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
+const SET_STATUS = 'profile/SET_STATUS';
+const DELETE_POST = 'profile/DELETE_POST';
 
 export type PostType = {
     id: number

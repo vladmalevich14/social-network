@@ -1,6 +1,6 @@
 import {ActionsTypes} from "./profile-reducer";
 
-const SEND_MESSAGE = 'SEND-MESSAGE';
+const SEND_MESSAGE = 'dialogs/SEND-MESSAGE';
 
 export const sendMessageCreator = (newMessageBody: string) => ({type: SEND_MESSAGE, newMessageBody}) as const
 

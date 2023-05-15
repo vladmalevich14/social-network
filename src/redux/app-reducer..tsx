@@ -1,8 +1,7 @@
-import {Dispatch} from "redux";
 import {getAuthUserData} from "./auth-reducer.";
 import {AppThunk} from "./redux-store";
 
-const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
+const INITIALIZED_SUCCESS = 'app/INITIALIZED_SUCCESS';
 
 type AllActionsTypes = ReturnType<typeof initializedSuccess>;
 
