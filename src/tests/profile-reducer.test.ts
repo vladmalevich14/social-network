@@ -1,11 +1,12 @@
 import profileReducer, {addPostActionCreator, deletePost, InitialStateType} from "../redux/profile-reducer";
+import {ProfileType} from "components/Profile/ProfileContainer";
 
 const state: InitialStateType = {
     posts: [
         {id: 1, message: 'Hi! How are you?', likesCount: 14},
         {id: 2, message: 'Its my first post', likesCount: 31},
     ],
-    profile: null,
+    profile: {} as ProfileType,
     status: ''
 }
 

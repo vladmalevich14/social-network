@@ -1,7 +1,15 @@
-.avatarka {
+.mainPhoto {
     width: 100px;
 }
 
 .descriptionBlock {
     padding: 10px;
+}
+
+.contact {
+    padding-left: 10px;
+}
+
+.contact span{
+    font-weight: 700;
 }
