@@ -23,11 +23,6 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanger, porti
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionPageNumber = portionNumber * portionSize;
 
-    // let curP = currentPage;
-    // let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
-    // let curPL = curP + 5;
-    // let slicedPages = pages.slice(curPF, curPL);
-
     return <div className={styles.paginator}>
         {portionNumber > 1 && <button
             onClick={() => {
@@ -38,9 +33,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanger, porti
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
             .map((p, i) =>
                 <span key={i}
-                    // className={currentPage == p ? styles.selectedPage : ''}
                       className={cn({[styles.selectedPage]: currentPage === p}, styles.pageNumber)}
-
                       onClick={(e) => {
                           onPageChanger(p)
                       }}

@@ -39,7 +39,6 @@ const ProfileDataForm: React.FC<InjectedFormProps<ProfileType, ProfileDataFormTy
             {Object.entries(profile.contacts).map(contact => {
                 let key = contact[0];
                 let value = contact[1];
-                // return <Contact key={key} contactTitle={key} contactValue={value}/>
                 return <div key={key} className={s.contact}>
                     <span>{key}: {createField(key, 'contacts.' + key.toLocaleLowerCase(), Input, [])}</span>{value}
                 </div>

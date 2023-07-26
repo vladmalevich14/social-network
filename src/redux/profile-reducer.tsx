@@ -91,9 +91,13 @@ export const getStatus = (userId: string) => async (dispatch: Dispatch<ActionsTy
 }
 
 export const updateStatus = (status: string) => async (dispatch: Dispatch<ActionsTypes>) => {
-    let response = await profileAPI.updateStatus(status)
-    if (response.data.resultCode === 0) {
-        dispatch(setStatus(status))
+    try {
+        let response = await profileAPI.updateStatus(status)
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status))
+        }
+    } catch (error) {
+        console.log(error)
     }
 }
 

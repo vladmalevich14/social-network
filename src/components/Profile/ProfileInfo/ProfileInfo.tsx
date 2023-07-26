@@ -6,8 +6,6 @@ import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 import userPhoto from "../../../assets/img/user.png";
 import {FilePhotoType, saveProfile} from "redux/profile-reducer";
 import {ProfileDataFormReduxForm} from "components/Profile/ProfileInfo/ProfileDataForm";
-import profile from "components/Profile/Profile";
-
 
 type ProfileInfoPropsType = {
     profile: ProfileType

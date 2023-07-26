@@ -12,14 +12,18 @@ type FormDataType = {
     email: string
     password: string
     rememberMe: boolean
+    captchaUrl: string | null
 }
 
-const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, error}) => {
+const LoginForm: React.FC<InjectedFormProps<FormDataType> & any> = ({handleSubmit, error, captchaUrl}) => {
     return (
         <form onSubmit={handleSubmit}>
             {createField('Email', 'email', Input, [required])}
             {createField('Password', 'password', Input, [required], {type: 'password'})}
             {createField(null, 'rememberMe', Input, [], {type: 'checkbox'}, 'remember me')}
+
+            {captchaUrl && <img src={captchaUrl} />}
+            {captchaUrl && createField('Symbols from image', 'captcha', Input, [required])}
 
             {error && <div className={styles.formSummaryError}>{error}</div>}
 
@@ -30,17 +34,18 @@ const LoginForm: React.FC<InjectedFormProps<FormDataType>> = ({handleSubmit, err
     );
 };
 
-const LoginReduxForm = reduxForm<FormDataType>({form: 'login'})(LoginForm)
+const LoginReduxForm = reduxForm<FormDataType, any>({form: 'login'})(LoginForm)
 
 type LoginPropsType = {
-    login: (email: string, password: string, rememberMe: boolean) => void
+    login: (email: string, password: string, rememberMe: boolean, captchaUrl: string | null) => void
     isAuth: boolean
+    captchaUrl: string | null
 }
 
 export const Login = (props: LoginPropsType) => {
 
     const onSubmit = (formData: FormDataType) => {
-        props.login(formData.email, formData.password, formData.rememberMe)
+        props.login(formData.email, formData.password, formData.rememberMe, formData.captchaUrl)
     }
 
     if (props.isAuth) {
@@ -50,17 +55,19 @@ export const Login = (props: LoginPropsType) => {
     return (
         <div>
             <h1>Login</h1>
-            <LoginReduxForm onSubmit={onSubmit}/>
+            <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
         </div>
     );
 };
 
 type mapStateToPropsType = {
     isAuth: boolean
+    captchaUrl: string | null
 }
 
 const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    captchaUrl: state.auth.captchaUrl
 })
 
 export default connect(mapStateToProps, {login})(Login)
