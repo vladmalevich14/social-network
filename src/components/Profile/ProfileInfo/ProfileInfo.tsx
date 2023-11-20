@@ -7,6 +7,7 @@ import userPhoto from "../../../assets/img/user.png";
 import {FilePhotoType, saveProfile} from "redux/profile-reducer";
 import {ProfileDataFormReduxForm} from "components/Profile/ProfileInfo/ProfileDataForm";
 
+
 type ProfileInfoPropsType = {
     profile: ProfileType
     status: string
@@ -35,17 +36,21 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     const onSubmit = (formData: ProfileType) => {
         saveProfile(formData).then(
             () => {
-            setEditMode(false)
-        })
+                setEditMode(false)
+            })
     }
 
     return (
         <div>
             <div className={s.descriptionBlock}>
-                <img className={s.mainPhoto} src={profile.photos.large || userPhoto}
-                     alt="avatar"/>
-                {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
-                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                <div>
+                    <img className={s.mainPhoto} src={profile.photos.large || userPhoto}
+                         alt="avatar"/>
+
+                    {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
+                    <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                </div>
+
                 {editMode ? <ProfileDataFormReduxForm initialValues={profile}
                                                       profile={profile}
                                                       onSubmit={onSubmit}/> :
@@ -58,10 +63,12 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 const ProfileData = (props: { profile: ProfileType, isOwner: boolean, goToEditMode: () => void }) => {
     const {profile, isOwner, goToEditMode} = props
     return <div>
-        {isOwner && <div>
-            <button onClick={goToEditMode}>edit</button>
-        </div>}
-        <div><b>Full name: </b>{profile.fullName}</div>
+        <div className={s.nameEdit}>
+            <b>{profile.fullName}</b>
+            {isOwner && <div className={s.editButton}>
+                <button onClick={goToEditMode}>edit</button>
+            </div>}
+        </div>
         <div><b>Looking for a job: </b> {profile.lookingForAJob ? 'yes' : 'no'}</div>
         {profile.lookingForAJob && <div><b>My skills: </b> {profile.lookingForAJobDescription}</div>}
         <div><b>About me: </b>{profile.aboutMe}</div>
@@ -82,7 +89,12 @@ type ContactType = {
 }
 
 export const Contact = (props: ContactType) => {
-    return <div className={s.contact}><span>{props.contactTitle}: </span>{props.contactValue}</div>
+    return <>
+        {
+            props.contactValue && <div className={s.contact}><a href={props.contactValue} className={s.link}
+                                                                target={'_blank'}>{props.contactTitle}</a>
+            </div>
+        }
+    </>
 }
-
 export default ProfileInfo

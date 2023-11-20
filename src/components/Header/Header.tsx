@@ -6,9 +6,18 @@ import {userSetAuthDataType} from "./HeaderContainer";
 const Header = (props: userSetAuthDataType) => {
     return (
         <header className={s.header}>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Zeronet_logo.png" alt="logo"/>
+            <div className={s.logoContainer}>
+                <NavLink to='/' className={s.link}>
+                    <img
+                        src="https://wordpress.iqonic.design/product/wp/socialv/wp-content/themes/socialv-themes/assets/images/logo-mini.svg"
+                        alt="logo" className={s.logo}/>
+                    Social Network
+                </NavLink>
+            </div>
             <div className={s.loginBlock}>
-                {props.isAuth ? <div>{props.login} - <button onClick={props.logout}>Log out</button></div> : <NavLink to={'/login'}>Login</NavLink>}
+                {props.isAuth ?
+                    <div>{props.login} - <button onClick={props.logout} className={s.button}>Log out</button></div> :
+                    <NavLink to={'/login'}>Login</NavLink>}
             </div>
         </header>
     );

@@ -1,6 +1,10 @@
 .header {
+    display: flex;
+    justify-content: space-between;
     grid-area: h;
-    background-color: green;
+    background-color: white;
+    width: 100%;
+    border-bottom: 1px solid #ddeaff;
 }
 
 header img {
@@ -9,9 +13,51 @@ header img {
 
 .loginBlock {
     float: right;
+    margin: 10px 20px 0 0;
+}
+
+.loginBlock:hover {
+    cursor: pointer;
 }
 
 .loginBlock a {
     color: white;
     text-decoration: none;
+}
+
+.logo {
+    width: 38px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.logoContainer {
+    padding-top: 10px;
+    margin-left: 50px;
+}
+
+.link {
+    color: black;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    width: 180px;
+    height: 40px;
+    background-color: #2f65b9;
+    color: white;
+    font-family: 'system-ui';
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid #2f65b9;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.5;
 }

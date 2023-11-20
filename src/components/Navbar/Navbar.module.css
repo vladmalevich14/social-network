@@ -1,21 +1,32 @@
 .nav {
     grid-area: n;
-    background-color: burlywood;
-    padding: 20px;
-    color: white;
+    background-color: white;
+    padding: 20px 0 0 20px;
+    color: #6f7f92;
     font-size: 23px;
+    width: 200px;
 }
 
 .item {
     text-decoration: none;
-    color: white;
+    color: #6f7f92;
+    width: 150px;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
-a.active {
-    color: gold;
+.active {
     text-decoration: none;
+    color: #2f65b9;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
+.navLinkContainer {
+    margin-bottom: 8px;
+}
 
 .friends {
     margin-top: 100px;
@@ -32,11 +43,24 @@ a.active {
     margin-bottom: 10px;
 }
 
-.nameFriend {
+.nameAndPhotoFriend {
     font-size: 14px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.nameFriend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
 }
 
 .infoFriends {
     display: flex;
+    flex-direction: column;
+    gap: 10px
 }

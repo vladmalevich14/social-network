@@ -1,16 +1,21 @@
 .app-wrapper {
     display: grid;
-    width: 1200px;
     margin: 0 auto;
     grid-template-areas:
     "h h"
     "n c";
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
-    /*grid-gap: ;*/
+    height: 100vh;
+    font-family: 'system-ui';
+    color: #abb8c3;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
 }
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: dodgerblue;
+    background-color: white;
+    border-left: 1px solid #ddeaff;
 }

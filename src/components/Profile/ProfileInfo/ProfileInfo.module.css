@@ -1,5 +1,6 @@
 .mainPhoto {
-    width: 100px;
+    width: 150px;
+    margin-right: 10px;
 }
 
 .descriptionBlock {
@@ -10,6 +11,35 @@
     padding-left: 10px;
 }
 
-.contact span{
+.link {
+    text-decoration: none;
+    color: #2f65b9;
+}
+
+.link:hover {
+    opacity: 0.5;
+}
+
+.link:visited {
+    opacity: 0.5;
+    color: #2f65b9;
+}
+
+.contact span {
     font-weight: 700;
+}
+
+.photoAndStatus {
+    display: flex;
+}
+
+.nameEdit {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.editButton {
+    display: flex;
+    align-items: center;
 }

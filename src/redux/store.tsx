@@ -1,5 +1,4 @@
-import {addPostActionCreator,
-} from "./profile-reducer";
+import {addPostActionCreator} from "./profile-reducer";
 import dialogsReducer, {sendMessageCreator} from "./dialogs-reducer";
 
 export type MessageType = {
@@ -29,7 +28,6 @@ export type RootStateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogPageType
 }
-
 export type StoreType = {
     _state: RootStateType
     _callSubscriber: (state: RootStateType) => void
@@ -37,8 +35,7 @@ export type StoreType = {
     getState: () => RootStateType
     dispatch: (action: ActionsTypes) => void
 }
-
- type ActionsTypes =
+type ActionsTypes =
     ReturnType<typeof addPostActionCreator>
     | ReturnType<typeof sendMessageCreator>
 
