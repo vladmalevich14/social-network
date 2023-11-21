@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./Users.module.css"
 import {initialStateType} from "../../redux/users-reducer.";
 import Paginator from "../common/Paginator/Paginator";
 import {User} from "./User";
@@ -28,7 +29,7 @@ const Users = ({
     return <div>
 
         <Paginator currentPage={currentPage} onPageChanger={onPageChanger} totalItemsCount={totalUsersCount} pageSize={pageSize}/>
-        <div>
+        <div className={s.users}>
             {state.users.map(u => <User key={u.id} user={u} followingInProgress={followingInProgress}
                                         unfollow={unfollow}
                                         follow={follow}/>

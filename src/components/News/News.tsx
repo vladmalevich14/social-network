@@ -3,7 +3,7 @@ import React from "react";
 const News = () => {
     return (
         <div>
-            News
+            Page 'News' in progress ...
         </div>
     )
 }

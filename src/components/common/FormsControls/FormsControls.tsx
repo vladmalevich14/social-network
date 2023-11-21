@@ -12,14 +12,15 @@ const FormControl = ({meta: {touched, error}, children}: any) => {
     </div>
 }
 
-export const Textarea = (props: any)  => {
+export const Textarea = (props: any) => {
     const {input, meta, ...restProps} = props
-    return <FormControl {...props}> <textarea {...input} {...restProps} /> </FormControl>
+    return <FormControl {...props}> <textarea className={styles.textarea} {...input} {...restProps}
+                                              placeholder={'text something'}/> </FormControl>
 }
 
-export const Input = (props: any ) => {
+export const Input = (props: any) => {
     const {input, meta, ...restProps} = props
-    return <FormControl {...props}> <input {...input} {...restProps} /> </FormControl>
+    return <FormControl {...props}> <input {...input} {...restProps} className={styles.input}/> </FormControl>
 }
 
 export const createField = (placeholder: string | null, name: string, component: any, validate: any[], props = {}, text = '') => (

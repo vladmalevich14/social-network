@@ -1,6 +1,7 @@
 .mainPhoto {
     width: 150px;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 .descriptionBlock {
@@ -11,13 +12,13 @@
     padding-left: 10px;
 }
 
+.contact:hover {
+    text-decoration: underline;
+}
+
 .link {
     text-decoration: none;
     color: #2f65b9;
-}
-
-.link:hover {
-    opacity: 0.5;
 }
 
 .link:visited {
@@ -30,16 +31,76 @@
 }
 
 .photoAndStatus {
+    padding: 20px 0;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 14px 54px rgba(0, 0, 0, 0.03);
+}
+
+.avatarContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.inputAvatar {
+    width: 150px;
 }
 
 .nameEdit {
     display: flex;
     gap: 10px;
     align-items: center;
+    color: black;
 }
 
 .editButton {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.profileDataContainer {
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 14px 54px rgba(0, 0, 0, 0.03);
+    margin-top: 10px;
+}
+
+.infoProfileContainer {
+    display: flex;
+}
+
+.infoContainer {
+    width: 200px;
+    padding: 10px 50px 10px 10px;
+    margin-right: 20px;
+    border-right: 1px solid #ddeaff;
+}
+
+.titleInfo {
+    color: black;
+    font-weight: 500;
+}
+
+.button {
+    background-color: #2f65b9;
+    border-radius: 5px;
+    padding: 0 20px;
+    height: 40px;
+    color: white;
+    font-family: 'system-ui';
+    font-weight: 600;
+    border: 1px solid #2f65b9;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.5;
 }

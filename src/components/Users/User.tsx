@@ -12,37 +12,45 @@ type UserPropsType = {
 }
 
 export const User = ({user, followingInProgress, unfollow, follow}: UserPropsType) => {
-    return <div>
+
+    return <div className={styles.user}>
+        <div className={styles.userContainer}>
             <span>
                 <div>
                     <NavLink to={'./../profile/' + user.id}>
-                    <img src={user.photos.small != null ? user.photos.small : userPhoto} className={styles.photo} alt={'userPhoto'}/>
+                    <img src={user.photos.small != null ? user.photos.small : userPhoto} className={styles.photo}
+                         alt={'userPhoto'}/>
                         </NavLink>
                 </div>
-                <div>
-                    {user.followed
-                        ? <button disabled={followingInProgress.some((id: number) => id === user.id)}
-                                  onClick={() => {
-                                      unfollow(user.id)
-                                  }}
-                        >Unfollow</button>
-                        :
-                        <button disabled={followingInProgress.some((id: number) => id === user.id)}
-                                onClick={() => {
-                                    follow(user.id)
-                                }}
-                        >Follow</button>}
-                </div>
+
             </span>
-        <span>
+            <span>
                 <span>
-                    <div>{user.name}</div>
-                    <div>{user.status}</div>
+                    <div className={styles.name}>{user.name}</div>
+                    <div className={styles.status}><i>{user.status}</i></div>
                 </span>
                 <span>
-                    <div>{'user.location.country'}</div>
-                    <div>{'user.location.city'}</div>
+                    <div className={styles.wasOnline}>
+                        was online {Math.floor(Math.random() * (59 - 1))} minute(s) ago
+                    </div>
                 </span>
             </span>
+        </div>
+        <div className={styles.followUnfollow}>
+            {user.followed
+                ? <button disabled={followingInProgress.some((id: number) => id === user.id)}
+                          onClick={() => {
+                              unfollow(user.id)
+                          }}
+                          className={styles.buttonsFollowUnfollow}
+                >Unfollow</button>
+                :
+                <button disabled={followingInProgress.some((id: number) => id === user.id)}
+                        onClick={() => {
+                            follow(user.id)
+                        }}
+                        className={styles.buttonsFollowUnfollow}
+                >Follow</button>}
+        </div>
     </div>
 }

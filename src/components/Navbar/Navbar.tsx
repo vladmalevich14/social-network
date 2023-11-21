@@ -22,6 +22,7 @@ const Navbar = ({store}: NavbarPropsType) => {
     })
     return (
         <nav className={s.nav}>
+            <div className={s.navLinksWrapper}>
             <div className={s.navLinkContainer}>
                 <NavLink to='/profile'
                          className={(navData) => navData.isActive ? s.active : s.item}>
@@ -57,6 +58,7 @@ const Navbar = ({store}: NavbarPropsType) => {
                          className={(navData) => navData.isActive ? s.active : s.item}>
                     <span className={s.navLinkName}>Settings</span>
                 </NavLink>
+            </div>
             </div>
             <div className={s.friends}>
                 <div className={s.nameSection}>Best friends</div>

@@ -47,7 +47,7 @@ header img {
 }
 
 .button {
-    width: 180px;
+    padding: 0 20px;
     height: 40px;
     background-color: #2f65b9;
     color: white;

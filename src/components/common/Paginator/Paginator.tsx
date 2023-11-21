@@ -19,7 +19,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanger, porti
     }
 
     let portionCount = Math.ceil(pagesCount / portionSize);
-    let [portionNumber, setPortionNumber] = useState(Math.ceil(currentPage/portionSize));
+    let [portionNumber, setPortionNumber] = useState(Math.ceil(currentPage / portionSize));
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionPageNumber = portionNumber * portionSize;
 
@@ -27,7 +27,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanger, porti
         {portionNumber > 1 && <button
             onClick={() => {
                 setPortionNumber(portionNumber - 1)
-            }}>Prev</button>}
+            }} className={styles.buttonsNextPrev}>←</button>}
 
         {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
@@ -41,7 +41,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPageChanger, porti
 
         {portionCount > portionNumber && <button onClick={() => {
             setPortionNumber(portionNumber + 1)
-        }}>Next</button>}
+        }} className={styles.buttonsNextPrev}>→</button>}
     </div>
 }
 

@@ -16,3 +16,20 @@
     padding: 5px;
     color: red;
 }
+
+.textarea, .input {
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid #f1f1f1;
+    width: 500px;
+    font-family: 'system-ui';
+    color: #abb8c3;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.textarea:focus, .input:focus {
+
+    outline: 2px solid #2f65b9;
+}

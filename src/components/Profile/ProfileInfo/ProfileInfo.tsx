@@ -43,11 +43,16 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
     return (
         <div>
             <div className={s.descriptionBlock}>
-                <div>
-                    <img className={s.mainPhoto} src={profile.photos.large || userPhoto}
-                         alt="avatar"/>
-
-                    {isOwner && <input type={'file'} onChange={mainPhotoSelected}/>}
+                <div className={s.photoAndStatus}>
+                    <div className={s.avatarContainer}>
+                        <img className={s.mainPhoto} src={profile.photos.large || userPhoto}
+                             alt="avatar"/>
+                        {isOwner &&
+                            <div className={s.inputWrapper}><input type={'file'} onChange={mainPhotoSelected} className={s.inputAvatar}/></div>}
+                    </div>
+                    <div className={s.nameEdit}>
+                        <b>{profile.fullName}</b>
+                    </div>
                     <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
                 </div>
 
@@ -62,23 +67,38 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
 
 const ProfileData = (props: { profile: ProfileType, isOwner: boolean, goToEditMode: () => void }) => {
     const {profile, isOwner, goToEditMode} = props
-    return <div>
-        <div className={s.nameEdit}>
-            <b>{profile.fullName}</b>
-            {isOwner && <div className={s.editButton}>
-                <button onClick={goToEditMode}>edit</button>
-            </div>}
+    return <div className={s.profileDataContainer}>
+        {isOwner && <div className={s.editButton}>
+            <button onClick={goToEditMode} className={s.button}>edit</button>
         </div>
-        <div><b>Looking for a job: </b> {profile.lookingForAJob ? 'yes' : 'no'}</div>
-        {profile.lookingForAJob && <div><b>My skills: </b> {profile.lookingForAJobDescription}</div>}
-        <div><b>About me: </b>{profile.aboutMe}</div>
-        <div>
-            <b>Contacts: </b>
-            {Object.entries(profile.contacts).map(contact => {
-                let key = contact[0];
-                let value = contact[1];
-                return <Contact key={key} contactTitle={key} contactValue={value}/>
-            })}
+        }
+        <div className={s.infoProfileContainer}>
+            <div className={s.infoContainer}>
+                <span className={s.titleInfo}>Looking for a job: </span>
+                {profile.lookingForAJob ? 'yes' : 'no'}
+            </div>
+
+            {profile.lookingForAJob &&
+                <div className={s.infoContainer}>
+                    <span className={s.titleInfo}>My skills: </span>
+                    <div>
+                        {profile.lookingForAJobDescription}
+                    </div>
+                </div>
+            }
+            <div className={s.infoContainer}>
+                <span className={s.titleInfo}>About me: </span>
+                {profile.aboutMe}
+            </div>
+
+            <div className={s.infoContainer}>
+                <span className={s.titleInfo}>Contacts: </span>
+                {Object.entries(profile.contacts).map(contact => {
+                    let key = contact[0];
+                    let value = contact[1];
+                    return <Contact key={key} contactTitle={key} contactValue={value}/>
+                })}
+            </div>
         </div>
     </div>
 }
@@ -91,7 +111,7 @@ type ContactType = {
 export const Contact = (props: ContactType) => {
     return <>
         {
-            props.contactValue && <div className={s.contact}><a href={props.contactValue} className={s.link}
+            props.contactValue && <div className={s.contact}>• <a href={props.contactValue} className={s.link}
                                                                 target={'_blank'}>{props.contactTitle}</a>
             </div>
         }

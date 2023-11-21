@@ -1,20 +1,28 @@
 import React from "react";
 import s from './Post.module.css';
+import {ProfileType} from "components/Profile/ProfileContainer";
 
- type PostPropsType = {
-     message: string
-     likesCount: number
- }
+type PostPropsType = {
+    message: string
+    likesCount: number
+    loginName: string | null
+    profile: ProfileType
+}
 
 const Post = (props: PostPropsType) => {
     return (
-                <div className={s.item}>
-                    <img src="https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg" alt=""/>
-                    {props.message}
-                    <div>
-                    <span> {props.likesCount} Likes</span>
-                    </div>
-                </div>
+        <div className={s.item}>
+            <div className={s.NameAndPhoto}>
+                {props.loginName}
+            </div>
+            <div className={s.message}>
+                {props.message}
+            </div>
+
+            {/*<div>*/}
+            {/*    <span className={s.likes}> {props.likesCount} Likes</span>*/}
+            {/*</div>*/}
+        </div>
     );
 }
 

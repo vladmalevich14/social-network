@@ -22,7 +22,6 @@ const Message = (props:MessagePropsType) => {
                     </div>
                 </div>
             </div>
-            <hr/>
         </div>
     )
 }

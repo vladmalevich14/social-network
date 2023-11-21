@@ -1,6 +1,6 @@
 .nav {
     grid-area: n;
-    background-color: white;
+    background-color: #f8f9fa;
     padding: 20px 0 0 20px;
     color: #6f7f92;
     font-size: 23px;
@@ -29,7 +29,7 @@
 }
 
 .friends {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .friends img {

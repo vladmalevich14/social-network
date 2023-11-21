@@ -3,15 +3,38 @@
 }
 
 .paginator {
-    margin: 10px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .pageNumber {
-    padding: 2px;
-    border: 1px solid grey;
+    padding: 10px;
+    border: 2px solid #f1f1f1;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.pageNumber:hover {
+    background-color: #2f65b9;
+    color: white;
 }
 
 .pageNumber.selectedPage {
-    font-weight: bold;
-    border-color: black;
+    color: white;
+    background-color: #2f65b9;
+}
+
+.buttonsNextPrev {
+    padding: 10px;
+    border: 2px solid #f1f1f1;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.buttonsNextPrev:hover {
+    background-color: #2f65b9;
+    color: white;
 }
